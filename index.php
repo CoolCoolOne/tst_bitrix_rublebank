@@ -231,12 +231,10 @@ $APPLICATION->SetTitle("");
 </div>
  </section>
 <!-- доработать блок с отзывами -->
-
 <p class="zagolovok-section-card">
-		Отзывы
-	</p>
-
-<?$APPLICATION->IncludeComponent(
+	 Отзывы
+</p>
+ <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"review",
 	Array(
@@ -293,4 +291,26 @@ $APPLICATION->SetTitle("");
 		"SORT_ORDER2" => "ASC",
 		"STRICT_SECTION_CHECK" => "N"
 	)
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?> <section class="section-opros">
+<div class="container">
+	
+ <?$APPLICATION->IncludeComponent(
+	"bitrix:voting.current", 
+	"opros1", 
+	array(
+		"COMPONENT_TEMPLATE" => "opros1",
+		"CHANNEL_SID" => "OPROS",
+		"VOTE_ID" => "",
+		"VOTE_ALL_RESULTS" => "N",
+		"AJAX_MODE" => "N",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "Y",
+		"AJAX_OPTION_HISTORY" => "N",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		"CACHE_TYPE" => "A",
+		"CACHE_TIME" => "3600"
+	),
+	false
+);?>
+</div>
+ </section>
